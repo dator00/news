@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Custom Headlines for Google News",
+  "version": "1.0",
+  "description": "A Chrome extension to modify headlines on Google News.",
+  "content_scripts": [
+    {
+      "matches": ["https://news.google.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "icon_16.png",
+      "48": "icon_48.png"
+    },
+    "default_title": "Custom Headlines"
+  },
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
+  "manifest_version": 2
+}
