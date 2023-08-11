@@ -1,29 +1,37 @@
 {
-  "manifest_version": 2,
-  "name": "Custom Headlines for Google News",
-  "version": "1.0",
-  "description": "A Chrome extension to modify headlines on Google News.",
+  "name": "Better Headlines",
+  "version": "0.1.0",
+  "description": "Saving timestamps in YT videos",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["https://news.google.com/*"],
-      "js": ["content_script.js"],
-      "run_at": "document_end"
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
     }
   ],
-  "permissions": [
-    "activeTab"
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bookmark.png",
+        "assets/play.png",
+        "assets/delete.png",
+        "assets/save.png"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
   ],
-  "browser_action": {
+  "action": {
     "default_icon": {
-      "16": "icon_16.png",
-      "48": "icon_48.png"
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
     },
-    "default_title": "Custom Headlines"
+    "default_title": "My YT Bookmarks",
+    "default_popup": "popup.html"
   },
-  "icons": {
-    "16": "icon_16.png",
-    "48": "icon_48.png",
-    "128": "icon_128.png"
-  },
-  "manifest_version": 2
+  "manifest_version": 3
 }
